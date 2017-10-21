@@ -3,8 +3,8 @@ const f = 5
 const balls = []
 class Ball{
   constructor(r){
-    this.x = random(width - 10)
-    this.y = random(height - 10)
+    this.x = random(20,width - 20)
+    this.y = random(20,height - 20)
     this.r = r
     this.dx = random(-20,20) 
     this.dy = random(-20,20) 
@@ -14,9 +14,9 @@ class Ball{
     this.x += this.dx
     this.y += this.dy
     if(this.y + this.r / 2 >= height) this.dy *= -1 
-    if(this.y - this.r / 2 <= 0) this.dy *= -1 
+      else if(this.y - this.r / 2 <= 0) this.dy *= -1 
     if(this.x + this.r / 2 >= width) this.dx *= -1 
-    if(this.x - this.r / 2 <= 0) this.dx *= -1
+      else if(this.x - this.r / 2 <= 0) this.dx *= -1
   }
 
   show(){
@@ -27,7 +27,7 @@ class Ball{
 }
 function setup() {
   createCanvas(800, 600);
-  for(let i = 0;i < 10; i++){
+  for(let i = 0;i < 100; i++){
     balls.push(new Ball(50))
   }
 }
